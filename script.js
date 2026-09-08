@@ -1,7 +1,9 @@
 const passwordInput = document.querySelector('#password');
 const toggle = document.querySelector('.toggle');
 
-togglePassword.addEventListener('click', () => {
+
+if (passwordInput && toggle) {
+	toggle.addEventListener('click', () => {
 	const isPasswordHidden = passwordInput.type === 'password';
 
 	passwordInput.type = isPasswordHidden ? 'text' : 'password';
@@ -13,8 +15,9 @@ togglePassword.addEventListener('click', () => {
 		'title',
 		isPasswordHidden ? 'Hide password' : 'Show password'
 	);
-});
+ 	});
+}
 
-function goToSignup(){
-	window.location.href="singup.html";
+function goToSignup() {
+	window.location.href = 'singup.html';
 }
