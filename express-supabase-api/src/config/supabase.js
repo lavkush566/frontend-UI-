@@ -1,11 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
+import dotenv from 'dotenv';
 
-// Your exact Supabase credentials hardcoded
-const supabaseUrl = 'https://supabase.co';
-const supabaseAnonKey = 'sb_publishable_wnFosAzwM9_vV7hORkYBrw_6ogf07-X';
+dotenv.config();
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase credentials');
+  throw new Error('Missing Supabase URL or Anon Key in environment variables.');
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
