@@ -3,7 +3,7 @@ import{supabase} from"../config/supabase.js";
 export const getAllUsers = async(req,res)=>{
     try{
         const{data,error}=await supabase
-        .from("user")
+        .from("users")
         .select("*");
 
         if (error) {
