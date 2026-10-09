@@ -111,6 +111,7 @@ export const getAllUsers = async(req,res)=>{
                     success:true,
                     message:"User deleted successfully"
                 });
+          
             } catch (error){
                 res.status(500).json({
                     success:false,
