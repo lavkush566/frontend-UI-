@@ -1,4 +1,4 @@
-const authorize =(...allowedRoles)=>{
+ export const authorize =(...allowedRoles)=>{
     return(req,res,next )=>{
         if (!req.user) {
             return res.status(404).json({

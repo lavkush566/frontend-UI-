@@ -66,7 +66,7 @@ export const getAllManagers = async (req,res)=>{
 }
 
 
-export const getManagerAllById =async(req,res)=>{
+export const getManagerById =async(req,res)=>{
     try{
         const {id} =req.params;
         const {data,error} =await supabase

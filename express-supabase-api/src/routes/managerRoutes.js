@@ -6,7 +6,7 @@ import{
     getManagerById,
     updateManager,
     deleteManager,
-}from "@supabase/supabase-js";
+}from "../controllers/managerController.js";
 
 import{authenticate} from "../middleware/authenticate.js";
 import{authorize} from "../middleware/authorize.js";
