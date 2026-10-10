@@ -97,9 +97,10 @@ export const getAllUsers = async(req,res)=>{
             try{
                 const{id}= req.params;
                 const{error} = await supabase
-                .from("user")
+                .from("users")
                 .delete()
-                .eq("id",id);
+                .eq("id",id)
+                .select();
                 if (error) {
                      return res.status(400).json({
                         success:false,
@@ -107,9 +108,17 @@ export const getAllUsers = async(req,res)=>{
                         error:error.message,
                     })
                 }
+
+                if(!data ||data.length ===0){
+                    return res.status(404).json({
+                        success:false,
+                        error:"user not found",
+                    })
+                }
                 res.status(200).json({
                     success:true,
-                    message:"User deleted successfully"
+                    message:"User deleted successfully",
+                    user:data[0],
                 });
           
             } catch (error){
